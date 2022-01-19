@@ -1,0 +1,193 @@
+body{
+    background-color: #ccffe0;
+}
+
+.acc {
+    border: 2px solid #174966;
+    margin: 5px;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.accordion-item {
+    background: #ccffe0;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.card {
+    border: 2px solid #174966;
+    border-radius: 25px 0px 25px 0px;
+    margin-bottom: 5px;
+    border-right: 10px solid #174966;
+}
+
+.card-title {
+    color: #174966;
+    background: #2FDD92;
+    border-radius: 15px 0px 15px 0px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.order-items{
+    padding-top: 2%;
+    padding-left: 10%;
+}
+
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+}
+.badge-pill {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.label-ondelivery{
+    padding-left:10px;
+    background-color: #dcae77;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid #ec9308;
+}
+.label-pending{
+    padding-left:10px;
+    background-color: rgb(136, 177, 229);
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid rgb(32, 89, 154);
+}
+.label-rejected{
+    padding-left:10px;
+    background-color: #cb7e7e;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid rgb(203, 42, 42);
+}
+.label-confirmed{
+    padding-left:10px;
+    background-color: #65a473;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid #0d7a21;
+}
+.label-assigned{
+    padding-left:10px;
+    background-color: #65a473;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid #0d7a21;
+}
+
+.label-unassigned{
+    padding-left:10px;
+    background-color: #b389dc;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid #4f2c72;
+}
+
+.label-reported{
+    padding-left:10px;
+    background-color: #cb7e7e;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid rgb(203, 42, 42);
+}
+
+.Hsign{
+    font-family: 'Roboto Slab', serif;
+    color: #174966;
+}
+
+.Hp {
+    color: black;
+}
+
+.heading {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+label {
+    color: black;
+}
+
+.select {
+    width: 100px;
+}
+
+.formError {
+    color: aliceblue;
+    background-color: rgb(233, 114, 120);
+    padding-left: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 10px solid red;
+}
+
+.form-control {
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966 ;
+}
+
+.town_dis_sel {
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966 ;
+    width: 40%;
+    color: black;
+}
+
+.btn {
+    background-color: #2FDD92;
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.footer {
+    margin-top: 20px;
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}
+.myOrdersAcc{
+    background-color: 		#679F08;
+}
+.myOrdersHead{
+    background-color: #174966;
+}
+.delivery_persons{
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966 ;
+    width: 40%;
+    color: black;
+}

@@ -1,0 +1,94 @@
+body{
+    background: #ccffe0;
+}
+
+.h1{
+    color: brown;
+}
+
+table {
+    text-align: center;
+}
+
+.reqForm{
+    margin-bottom: 10px;
+}
+
+.acc {
+    border: 2px solid #174966;
+    margin: 5px;
+    /*background: #174966;*/
+    border-radius: 20px 0px 20px 0px;
+}
+
+.accordion-item{
+    background: #ccffe0;
+}
+
+.search_input {
+    border-radius: 15px 0px 15px 0px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    color: rgb(255, 255, 255);
+    background-color: #174966;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 15px 0px 15px 0px;
+}
+
+.remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    color: rgb(255, 255, 255);
+    background-color: #ccffe0;
+    border: 1px solid #ccffe0;
+}
+
+.card {
+    border: 2px solid #174966;
+    border-radius: 15px 0px 15px 0px;
+    background: #2FDD92;
+}
+
+.card-text{
+    font-size: small;
+}
+
+.req_success {
+    color: black;
+    background-color: rgb(114, 233, 160);
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #174966;
+    border-left: 10px solid rgb(26, 136, 26);
+    margin: 5px;
+}
+
+.req_error {
+    color: black;
+    background-color: rgb(233, 114, 120);
+    padding-left: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #174966;
+    border-left: 10px solid red;
+    margin: 5px;
+}
+
+.footer {
+    margin-top: 20px;
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}

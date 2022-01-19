@@ -1,0 +1,135 @@
+body{
+    background-color: #ccffe0;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.heading {
+    margin-top: 20px;
+    margin-left: 0px;
+    color: #174966;
+    font-family: 'Roboto Slab', serif;
+}
+
+.select {
+    width: 100px;
+}
+
+.card {
+    border: 2px solid #174966;
+    border-radius: 25px 0px 25px 0px;
+    margin-bottom: 5px;
+    border-right: 10px solid #174966;
+}
+
+.card-title {
+    color: #174966;
+    background: #2FDD92;
+    border-radius: 15px 0px 15px 0px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.acc {
+    border: 2px solid #174966;
+    margin: 5px;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.accordion-item {
+    background: #ccffe0;
+    border-radius: 20px 0px 20px 0px;
+}
+
+
+.formError {
+    color: aliceblue;
+    background-color: rgb(233, 114, 120);
+    padding-left: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid red;
+}
+
+.formSuccess {
+    color: rgb(0, 0, 0);
+    background-color: rgb(135, 226, 183);
+    padding-left: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 10px solid rgb(10, 141, 10);
+}
+
+.btn {
+    color: rgb(0, 0, 0);
+    background-color: #2FDD92;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 15px 0px 15px 0px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-right: 10px;
+    border: 1px solid #174966;
+}
+
+.form-control {
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966 ;
+}
+
+.td {
+    color: #174966;
+}
+
+.th {
+    color: black;
+}
+
+.footer {
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}
+
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+}
+.badge-pill {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.label-confirmed {
+    color: rgb(0, 0, 0);
+    background-color: rgb(135, 226, 183);
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid rgb(10, 141, 10);
+}
+
+.label-rejected {
+    color: rgb(0, 0, 0);
+    background-color: rgb(233, 114, 120);
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid red;
+}

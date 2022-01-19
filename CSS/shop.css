@@ -1,0 +1,169 @@
+body {
+    background-color: #ccffe0;
+}
+
+.heading_name {
+    margin-top: 20px;
+    margin-left: 5px;
+    color: #174966; 
+    font-family: 'Roboto Slab', serif;
+    display: inline-block;
+}
+
+.intro {
+    display: inline-block;
+    color: #174966; 
+    margin-left: 20px;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* This can be used to center a button */
+.addBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    color: rgb(7, 7, 7);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+}
+
+/*Card styling*/
+
+.card-body {
+    height: 150px;
+}
+
+.card-img-top {
+    height: 200px;
+    /* width: 50px; */
+    border-radius: 30px 0px 30px 0px;
+}
+
+h5 {
+    text-align: center;
+}
+
+.card-text {
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    font-weight: bold;
+}
+
+.card-text2 {
+    display: inline-block;
+    float: right;
+    color: black;
+    font-weight: bold;
+}
+
+.card {
+    height: 370px;
+    background-color: #2FDD92;
+    color: black;
+    margin-bottom: 10px;
+    border-radius: 30px 0px 30px 0px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #174966;
+}
+
+.form-check {
+    color: white;
+    font-size: x-small;
+}
+
+.colHeading{
+    display: inline-block;
+    color: #174966;
+}
+.fa-shopping-cart {
+    display: inline-block;
+    color: #2FDD92;
+}
+
+.divCart {
+    border-left: 1px dotted #174966;
+}
+
+.error {
+    color: aliceblue;
+    background-color: rgb(233, 114, 120);
+    padding-left: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 10px solid red;
+}
+
+.table {
+    background: #2FDD92;
+    border: 1px solid #ccffe0;
+    border-radius: 30px 0px 30px 0px;
+}
+
+.card {
+    border: 1px solid #174966;
+}
+
+tr {
+    text-align: center;
+    border-radius: 30px 0px 30px 0px;
+}
+
+th {
+    font-family:"cursive";
+    border: 0px;
+}
+
+td {
+    font-weight: bold;
+}
+
+.total_price {
+    margin:20px;
+    background-color:#2FDD92;
+    padding:5px;
+    border: 1px solid #174966;
+    border-left: 10px solid #1ec439;
+    border-right: 10px solid #1ec439;
+    border-radius: 15px 0px 15px 0px;
+}
+
+.btn {
+    color: rgb(255, 255, 255);
+    background-color: #174966;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 15px 0px 15px 0px;
+    
+}
+
+.form-check-label {
+    color: #174966;
+    font-weight: bold;
+}
+
+.input {
+    text-align: center;
+    color: #ccffe0;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 20px;
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}

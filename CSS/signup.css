@@ -1,0 +1,63 @@
+body{
+    background-color: #ccffe0;
+}
+
+.Hsign{
+    font-family: 'Roboto Slab', serif;
+    color: #174966;
+}
+
+.Hp {
+    color: black;
+}
+
+.heading {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+label {
+    color: black;
+}
+
+.select {
+    width: 100px;
+}
+
+.formError {
+    color: aliceblue;
+    background-color: rgb(233, 114, 120);
+    padding-left: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 10px solid red;
+}
+
+.form-control {
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966 ;
+}
+
+.town_dis_sel {
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966 ;
+    width: 40%; 
+    color: black;
+}
+
+.btn {
+    background-color: #2FDD92;
+    border-radius: 15px 0px 15px 0px;
+    border: 1px solid #174966;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.footer {
+    margin-top: 20px;
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}

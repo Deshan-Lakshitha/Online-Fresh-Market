@@ -1,0 +1,130 @@
+body{
+    background-color: #ccffe0;
+}
+
+.home-heading{
+    font-family: 'Roboto Slab', serif;
+    color: #174966;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 5px;
+    font-size: 60px;
+    
+}
+
+/*.carousel {*/
+/*    width: 80%;*/
+/*    margin: auto auto 50px;*/
+/*    height: 100%;*/
+/*    border: 3px solid #2FDD92;*/
+/*    border-radius:  50px 0px 50px 0px;*/
+/*}*/
+
+/*.img_carousel {*/
+/*    border-radius:  50px 0px 50px 0px;*/
+/*    opacity: 70%;*/
+/*}*/
+
+/*.h5_carousel {*/
+/*    font-weight: bold;*/
+/*    font-family: "Arial Narrow";*/
+/*}*/
+
+
+/*.p_carousel {*/
+/*    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/
+/*}*/
+
+/*.card-body{*/
+/*    height: 150px;*/
+/*}*/
+
+.card-img-top{
+    height: 200px;
+}
+
+.container{
+    margin-bottom: 30px;
+}
+
+.underP{
+    text-align: center;
+    font-size: x-large;
+}
+
+
+/* This can be used to center a button */
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    color: rgb(7, 7, 7);
+    font-weight: bold;
+    border-radius: 15px 0px 15px 0px;
+    /*border: 1px solid #174966;*/
+}
+
+.btn-success {
+    background-color: #2FDD92;
+}
+
+.btn-primary {
+    background-color: #2FDD92;
+}
+
+p{
+    margin: 5px;
+    margin-top: 0px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.bottom_h6 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0px;
+    font-weight: normal;
+    font-family: 'Mukta Mahee', sans-serif;
+}
+
+.about-heading {
+    margin-left: 20px;
+    font-family: 'Roboto Slab', serif;
+    color: #174966;
+}
+
+h5{
+    text-align: center;
+    color: #174966;
+}
+
+.card-text{
+    color: rgb(0, 0, 0);
+}
+
+.card{
+    height: 350px;
+    background-color: #2FDD92;
+    color: black;
+    margin-bottom: 10px;
+    border: 1px solid #174966;
+    border-radius: 30px 0px 30px 0px;
+}
+
+.card-img-top {
+    border-radius: 30px 0px 0px 0px;
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}

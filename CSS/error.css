@@ -1,0 +1,35 @@
+body {
+    background-color: #ccffe0;
+}
+
+.btn {
+    color: rgb(0, 0, 0);
+    background-color: #2FDD92;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 15px 0px 15px 0px;
+    margin: 10px;
+    border: 1px solid #174966;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    align-self: center;
+}
+
+.footer {
+    background-color: #174966;
+}
+
+.h6 {
+    text-align: center;
+}

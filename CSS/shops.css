@@ -1,0 +1,86 @@
+body{
+    background-color: #ccffe0;
+}
+
+.home-heading{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 5px;
+    font-size: 60px;
+}
+
+.card-body{
+    min-height: 150px;
+}
+
+.card-img-top{
+    max-height: 180px;
+    border-radius: 30px 0px 0px 0px;
+}
+
+.container{
+    margin-bottom: 30px;
+}
+
+.underP{
+    text-align: center;
+    font-size: x-large;
+}
+
+
+/* This can be used to center a button */
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    color: rgb(255, 255, 255);
+    background-color: #174966;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 15px 0px 15px 0px;
+}
+
+.card-text{
+    margin: 5px;
+    margin-top: 0px;
+    text-align: center;
+    color: black;
+    font-size: small;
+}
+
+.bottomP{
+    border: 1px groove rgb(8, 241, 8);
+}
+
+.card-title{
+    text-align: center;
+    color: #174966;
+    font-weight: bold;
+}
+
+.card{
+    height: 350px;
+    max-width: 300px;
+    background-color: #2FDD92;
+    color: black;
+    margin-bottom: 10px;
+    border: 1px solid #174966;
+    border-radius: 30px 0px 30px 0px;
+}
+
+.search_input{
+    border-radius: 15px 0px 15px 0px;
+}
+
+.footer {
+    margin-top: 20px;
+    background-color: #174966;
+    margin-bottom: 0px;
+}
+
+.h6 {
+    text-align: center;
+}
