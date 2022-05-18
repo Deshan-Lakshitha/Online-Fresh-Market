@@ -46,12 +46,12 @@
                 <div class="col">
                     <label for="firstName" class="form-label">First name <label
                                 style="color: crimson;">*</label></label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?= $data['first_name'] ?>">
 
                 </div>
                 <div class="col">
                     <label for="lastName" class="form-label">Last name <label style="color: crimson;">*</label></label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" value="">
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?= $data['last_name'] ?>">
                 </div>
             </div>
         </div>
@@ -60,13 +60,13 @@
             <div class="row">
                 <div class="col">
                     <label for="email" class="form-label">Email address <label style="color: crimson;">*</label></label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="example@email.com">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="example@email.com" value="<?= $data['email'] ?>">
                 </div>
                 <div class="col">
                     <label for="mobileNo" class="form-label">Mobile numeber <label
                                 style="color: crimson;">*</label></label>
                     <input type="text" class="form-control" placeholder="07X1234567" aria-label="Recipient's username"
-                           aria-describedby="basic-addon2" name="mobile_no">
+                           aria-describedby="basic-addon2" name="mobile_no" value="<?= $data['mobile_no'] ?>">
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     <label for="address" class="form-label">Postal address <label
                                 style="color: crimson;">*</label></label>
                     <input type="text" class="form-control" id="address" name="address"
-                           placeholder="2/40, Temple Street, Galle.">
+                           placeholder="2/40, Temple Street, Galle." value="<?= $data['address'] ?>">
                 </div>
             </div>
         </div>

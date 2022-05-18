@@ -24,7 +24,7 @@ class MyOrders extends Model
 
     public function updateMyOrderData($order_id,$column, $values){
         //not completed
-        return Database::update_table("orders",$column,$values, "order_id", $order_id);
+        return Database::update_table("orders", $column, $values, "order_id", $order_id);
 
     }
     public function loadOrderItems($myOrders){
@@ -38,4 +38,29 @@ class MyOrders extends Model
         return $orderItemsList;
     }
 
+    function loadOrder($order_id) {
+        return Database::retrieve("order_items", "*", array("order_id"), array($order_id));
+    }
+
+    function updateShopItems($shopItemIdArr, $newQuantityArr) {
+        for ($i = 0; $i < count($shopItemIdArr); $i++) {
+            //Database::update("shop_items", )
+            Database::update_table("shop_items", array("quantity"), array($newQuantityArr[$i]), "item_id", $shopItemIdArr[$i]);
+        }
+    }
+
+    function loadShopItems($shop_id) {
+        $shopItems = Database::retrieve("shop_items", "*", array("shop_id"), array($shop_id));
+        $shopItemList = [];
+
+        foreach ($shopItems as $shopItem) {
+            $shopItemList[$shopItem["item_id"]] = $shopItem;
+        }
+
+        return $shopItemList;
+    }
+
+    function loadOrderData($order_id) {
+        return Database::retrieve("orders", "*", array("order_id"), array($order_id))[0];
+    }
 }

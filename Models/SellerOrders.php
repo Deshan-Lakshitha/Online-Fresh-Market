@@ -20,7 +20,8 @@ class SellerOrders extends Model
                 if ($r["delivery_id"]) {
                     $delivery_person_id = Database::retrieve("deliveries", array("delivery_person_id"), array("delivery_id"), array($r["delivery_id"]))[0]["delivery_person_id"];
                     $delivery_person = Database::retrieve("users", "*", array("user_id"), array($delivery_person_id));
-                    $dp_name= $delivery_person[0]["first_name"] . " " . $delivery_person[0]["last_name"];
+                    if ($delivery_person_id)
+                        $dp_name= $delivery_person[0]["first_name"] . " " . $delivery_person[0]["last_name"];
                 }
 
                 $factory = new SellerOrderFactory();
@@ -81,4 +82,26 @@ class SellerOrders extends Model
         return Database::retrieve("shops", array("shop_name", "address"), array("user_id"), array($user_id))[0];
     }
 
+    function loadOrder($order_id) {
+        return Database::retrieve("order_items", "*", array("order_id"), array($order_id));
+    }
+
+    function loadShopItems($shop_id) {
+        $shopItems = Database::retrieve("shop_items", "*", array("shop_id"), array($shop_id));
+        $shopItemList = [];
+
+        foreach ($shopItems as $shopItem) {
+            $shopItemList[$shopItem["item_id"]] = $shopItem;
+        }
+
+        return $shopItemList;
+    }
+
+    function updateShopItems($shopItemIdArr, $newQuantityArr) {
+
+        for ($i = 0; $i < count($shopItemIdArr); $i++) {
+            //Database::update("shop_items", )
+            Database::update_table("shop_items", array("quantity"), array($newQuantityArr[$i]), "item_id", $shopItemIdArr[$i]);
+        }
+    }
 }

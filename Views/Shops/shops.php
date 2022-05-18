@@ -11,7 +11,7 @@
         else {
             if (isset($shopList)) {
                 foreach ($shopList as $shop) {
-                    $src = WEBROOT . '/HomeImages/' . $shop->getImage();
+                    $src = WEBROOT . '/HomeImages/ShopImages/' . $shop->getImage();
                     echo '<div class="col-lg-3 col-md-6">
                         <div class="card" style="width: 18rem;">
                         <img src="' . $src . '" class="card-img-top" alt="...">

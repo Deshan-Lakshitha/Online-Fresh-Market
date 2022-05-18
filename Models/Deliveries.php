@@ -55,6 +55,11 @@ class Deliveries extends Model
         return Database::update("deliveries", array("delivery_status"), array("delivery_id"), $data);
     }
 
+    public function updateRejectState($data){
+
+        return Database::update("deliveries", array("delivery_status", "delivery_person_id"), array("delivery_id"), $data);
+    }
+
     public function updateOrder($values){
         return Database::update("orders", array("order_status"), array("order_id"), $values);
     }

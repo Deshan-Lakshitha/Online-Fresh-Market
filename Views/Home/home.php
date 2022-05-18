@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="col">
-                <p class="underP">Alredy have an account..?</p>
+                <p class="underP">Already have an account..?</p>
                 <div class="btn">
                     <a class="btn btn-success" id="sign-btn" href="<?php echo WEBROOT . 'login'; ?>" role="button">Sign In</a>
                 </div>

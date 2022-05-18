@@ -25,7 +25,11 @@ class MyshopController extends Controller
         $data = $_POST;
         $this->secure_form($data);
 
+        $formData = array("item_name" => "", "quantity" => "", "unit_price" => "");
+
         if (isset($data["save"])) {
+            $this->set(array("data" => $formData));
+
             $values = array($data["unit_price"], $data["quantity"], $data["is_available"]);
             $res = $model->updateItem($data["item_id"], $values);
             if ($res)
@@ -33,10 +37,15 @@ class MyshopController extends Controller
             else
                 $this->set(array("update" => "failed"));
         } else if (isset($data["add"])) {
+            $formData = $data;
+            $this->set(array("data" => $formData));
+
             if (!empty($data["item_name"]) && !empty($data["quantity"]) && !empty($data["unit_price"])) {
                 if (is_numeric($data["unit_price"]) && is_numeric($data["quantity"])) {
-                    if ($this->validateImage($data)) {
-                        $values = array($data["item_name"], $data["unit_price"], $data["quantity"], "in stock", $user->getShopId(), $_FILES["image"]["name"]);
+                    $currDateTime = getdate();
+                    $filename = $currDateTime["year"] . $currDateTime["mon"] . $currDateTime["mday"] . $currDateTime["hours"] . $currDateTime["minutes"] . $currDateTime["seconds"] . "." . strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+                    if ($this->validateImage($data, $filename)) {
+                        $values = array($data["item_name"], $data["unit_price"], $data["quantity"], "in stock", $user->getShopId(), $filename);
                         $res = $model->addItem($values);
                         if ($res) {
                             $this->set(array("add_new" => "success"));
@@ -49,6 +58,7 @@ class MyshopController extends Controller
                 $this->set(array("error" => "empty_fields"));
 
         }
+        $this->set(array("data" => $formData));
 
         $shop_details = $model->load($user->getId());
         $this->set(array("shop_info" => $shop_details));
@@ -59,16 +69,14 @@ class MyshopController extends Controller
         $this->render("myshop");
     }
 
-    private function validateImage($data)
+    private function validateImage($data, $filename)
     {
         if ($_FILES["image"]["name"] == "")
             return true;
         else {
-            var_dump($_FILES);
             $target_dir = "../HomeImages/items/";   //Target directory
-            $target_file = $target_dir . basename($_FILES["image"]["name"]); // Path of file to upload
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION)); // Check if image file is an actual image or fake image.
-            // basename($_FILES["file"]["name"]) gets the name as uploaded file name
+            $target_file = $target_dir . $filename; // Path of file to upload
+            $imageFileType = strtolower(pathinfo($filename, PATHINFO_EXTENSION)); // Check if image file is an actual image or fake image.
             $check = getimagesize($_FILES["image"]["tmp_name"]);
 
             if ($check == false) {

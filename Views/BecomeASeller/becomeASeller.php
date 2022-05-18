@@ -4,21 +4,35 @@
 
 <div class="container">
     <form method="post" action="becomeASeller" enctype="multipart/form-data">
+
         <?php
         if ($formErr) {
             echo "<p class=\"formError\">Some required fields in the form are empty or invalid.</p>";
         }
+        if (isset($mobile_num_error) && $mobile_num_error)
+            echo "<p class=\"formError\">Invalid mobile number. Number must have exactly 10 digits and start with 0XX. Registration failed. Please try again.</p>";
 
-        switch ($uploadErr) {
-            case "notImage":
-                echo "<p class=\"formError\">The selected file is not an image.</p>";
-                break;
-            case "noFile":
-                echo "<p class=\"formError\">No file selected.</p>";
-                break;
-            case "serverUploadErr":
-                echo "<p class=\"formError\">File upload failed in the server. Please try again.</p>";
-                break;
+        if (!isset($formErr)) {
+            switch ($uploadErr) {
+                case "img_invalid":
+                    echo "<p class=\"formError\">The selected file is not an image.</p>";
+                    break;
+                case "img_no_file":
+                    echo "<p class=\"formError\">No file selected.</p>";
+                    break;
+                case "img_exists";
+                    echo "<p class=\"formError\">File already exists. Please try again.</p>";
+                    break;
+                case "img_failed":
+                    echo "<p class=\"formError\">File upload failed in the server. Please try again.</p>";
+                    break;
+                case "img_type_error":
+                    echo "<p class=\"formError\">Image type you selected is not valid.</p>";
+                    break;
+                case "img_large":
+                    echo "<p class=\"formError\">Image file you selected is too large.</p>";
+                    break;
+            }
         }
         ?>
 
@@ -75,14 +89,15 @@
                     </select>
                 </div>
             </div>
-        </div><br>
+        </div>
+        <br>
 
         <div class="mb-3">
             <div class="row">
                 <div class="col">
                     <label for="mobileNo" class="form-label">Mobile numeber <label
                                 style="color: crimson;">*</label></label>
-                    <input type="text" class="form-control" placeholder="07X1234567" aria-label="Recipient's username"
+                    <input type="text" class="form-control" value="<?= $formData['mobile_no'] ?>" placeholder="07X1234567" aria-label="Recipient's username"
                            aria-describedby="basic-addon2" name="mobile_no">
                 </div>
                 <div class="col">
@@ -93,7 +108,8 @@
                     </div>
                 </div>
             </div>
-        </div><br>
+        </div>
+        <br>
 
         <div class="mb-3">
             <div class="row">
@@ -103,7 +119,8 @@
                            value="<?= $formData['description'] ?>">
                 </div>
             </div>
-        </div><br>
+        </div>
+        <br>
 
         <div class="form-group">
             <div class="row">

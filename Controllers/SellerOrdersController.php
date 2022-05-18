@@ -20,17 +20,28 @@ class SellerOrdersController extends Controller
 
         $model = new SellerOrders();
 
+        if (isset($_POST["accept"])) {
 
-        if (isset($_POST["accept"])){
-//            $deliveryPersonUserId = $_POST["deliveryPerson"];
+            $shopItemList = $model->loadShopItems($user->getShopId());
             $orderId = $_POST["accept"];
-//            $model->updateDeliveries($deliveryPersonUserId, $orderId);
-//            $deliveryId = $model->getDeliveryId($orderId);
-//            $model->updateSellerOrderData($orderId, array("delivery_id", "order_status"), array($deliveryId, "assigned"));
-            $model->insertDeliveries($orderId);
+            $order = $model->loadOrder($orderId);
 
+            if ($this->isValidOrder($order, $shopItemList)) {
+                $shopItemIds = [];
+                $newQuantities = [];
 
+                foreach ($order as $orderItem) {
+                    array_push($shopItemIds, $orderItem["shop_item_id"]);
+                    array_push($newQuantities, (float) $shopItemList[$orderItem["shop_item_id"]]["quantity"] - (float) $orderItem["quantity"]);
+                }
+                $model->updateShopItems($shopItemIds, $newQuantities);
+
+                $model->insertDeliveries($orderId);
+            } else {
+                $this->set(array("orderError" => true));
+            }
         }
+
         if (isset($_POST["reject"])){
             $orderId = $_POST["reject"];
             $model->updateSellerOrderData($orderId, array("order_status"), array("rejected"));
@@ -94,5 +105,14 @@ class SellerOrdersController extends Controller
             }
         }
         $this->set(["pending" => $pending, "unassigned" => $unassigned, "assigned" => $assigned, "ondelivery" => $ondelivery, "confirmed" => $confirmed, "rejected" => $rejected, "reported" => $reported]);
+    }
+
+    function isValidOrder($order, $shopItemList) {
+        foreach ($order as $orderItem) {
+            if ($shopItemList[$orderItem["shop_item_id"]]["quantity"] < $orderItem["quantity"]) {
+                return false;
+            }
+        }
+        return true;
     }
 }

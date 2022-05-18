@@ -136,12 +136,12 @@ if (isset($shop_info) && $shop_info["shop_name"] != "") {
                     <div class="row">
                         <div class="col-md-6">
                             <label for="itemName" class="form-label">Item name <label style="color: crimson;">*</label></label>
-                            <input type="text" class="form-control" id="item_name" name="item_name" placeholder="">
+                            <input type="text" class="form-control" id="item_name" name="item_name" placeholder="" value="<?= isset($error) ? $data['item_name'] : '' ?>">
                         </div>
                         <div class="col-md-6">
                             <label for="quantity" class="form-label">Initial quantity(kg) <label
                                         style="color: crimson;">*</label></label>
-                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="">
+                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="" value="<?= isset($error) ? $data['quantity'] : '' ?>">
                         </div>
                     </div>
                     <br>
@@ -149,7 +149,7 @@ if (isset($shop_info) && $shop_info["shop_name"] != "") {
                         <div class="col-md-6">
                             <label for="unitPrice" class="form-label">Unit price(LKR) <label
                                         style="color: crimson;">*</label></label>
-                            <input type="text" class="form-control" id="unit_price" name="unit_price" placeholder="">
+                            <input type="text" class="form-control" id="unit_price" name="unit_price" placeholder="" value="<?= isset($error) ? $data['unit_price'] : '' ?>">
                         </div>
                         <div class="col-md-6">
                             <label for="image" class="form-label">Image </label>

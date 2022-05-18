@@ -1,6 +1,5 @@
 <?php
 
-
 class MyOrdersController extends Controller
 {
     function default() {
@@ -25,12 +24,27 @@ class MyOrdersController extends Controller
             $model->updateMyOrderData($_POST["cancel"],array("order_status","visibility"),array("cancelled","hidden"));
         }
         if (isset($_POST["confirm"])){
-            $model->updateMyOrderData($_POST["confirm"],array("rating","order_status"),array($_POST["rating"], "confirmed"));
+            if (isset($_POST["rating"]))
+                $model->updateMyOrderData($_POST["confirm"],array("rating","order_status"),array($_POST["rating"], "confirmed"));
+            else
+                $model->updateMyOrderData($_POST["confirm"],array("order_status"),array("confirmed"));
         }
         if (isset($_POST["close"])){
             $model->updateMyOrderData($_POST["close"],array("order_status","visibility"),array("closed","hidden"));
         }
         if (isset($_POST["reject"])){
+            $orderItems = $model->loadOrder($_POST["reject"]);
+            $shopItems = $model->loadShopItems($model->loadOrderData($_POST["reject"])["shop_id"]);
+
+            $shopItemIds = [];
+            $newQuantities = [];
+
+            foreach ($orderItems as $orderItem) {
+                array_push($shopItemIds, $orderItem["shop_item_id"]);
+                array_push($newQuantities, (float) $shopItems[$orderItem["shop_item_id"]]["quantity"] + (float) $orderItem["quantity"]);
+            }
+            $model->updateShopItems($shopItemIds, $newQuantities);
+
             $model->updateMyOrderData($_POST["reject"],array("order_status","visibility"),array("rejected_on_delivery","visible"));
         }
         if (isset($_POST["report"])){

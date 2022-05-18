@@ -39,7 +39,12 @@ class ProfileController extends Controller
         //       $requests = $model->getDeliveryPersonRequest($user->getId());
         //       $this->set(["requests" => $requests]);
 
+        $formData = array("new_first_name" => "", "new_last_name" => "", "new_mobile_no" => "", "new_address" => "");
+
         if (isset($data["submit"])) {
+
+            $formData = $data;
+            $this->set(array("data" => $formData));
 
             $this->first_name = $data["new_first_name"];
             $this->last_name = $data["new_last_name"];
@@ -112,6 +117,8 @@ class ProfileController extends Controller
             }
         } elseif (isset($data["password_submit"])) {
 
+            $this->set(array("data" => $formData));
+
             $this->password = $data["password"];
             $this->new_password = $data["new_password"];
             $this->c_new_password = $data["c_new_password"];
@@ -120,7 +127,10 @@ class ProfileController extends Controller
                 $this->set(array("error_password" => "wrong_password"));
             } else if (!$this->comparePasswords()) {
                 $this->set(array("error_password" => "password_mismatch"));
-            } else {
+            } else if ($this->checkEmptyFields()){
+                $this->set(array("error_password" => "empty_password"));
+            }
+            else {
                 $result = $model->updatePassword(array(password_hash($this->new_password, PASSWORD_DEFAULT), $user->getEmail()));
                 if ($result) {
                     $user->setPassword(password_hash($this->new_password, PASSWORD_DEFAULT));
@@ -131,6 +141,9 @@ class ProfileController extends Controller
                 }
             }
         } elseif (isset($data["accept"])) {
+
+            $this->set(array("data" => $formData));
+
             if ($model->updateRequest(array("accepted", $data["request_id"]))) {
 
                 $values = array($user->getId(), $user->getFirstName(), $user->getLastName(), $data["shop_id"], '0');
@@ -150,12 +163,17 @@ class ProfileController extends Controller
                 $this->set(array("error_req" => "database_query_error"));
             }
         } elseif (isset($data["reject"])) {
+
+            $this->set(array("data" => $formData));
+
             if (!$model->updateRequest(array("rejected", $data["request_id"]))) {
                 $this->set(array("error_req" => "database_query_error"));
             } else {
                 $this->set(array("success" => "request_reject"));
             }
         }
+
+        $this->set(array("data" => $formData));
 
         $requests = $model->getDeliveryPersonRequest($user->getId());
         $this->set(["requests" => $requests]);
@@ -177,10 +195,13 @@ class ProfileController extends Controller
     }
 
     // Validate mobile number
-    public function validateMobileNo()
-    {
+    public function validateMobileNo() {
         $MobileNo = $this->mobile_no;
-        return !(strlen($MobileNo) != 10 || substr($MobileNo, 0, 2) != '07');
+        $not_numbers = true;
+        if (preg_match("/^[0-9]*$/", $MobileNo))
+            $not_numbers = false;
+
+        return !(strlen($MobileNo) != 10 || substr($MobileNo, 0, 1) != '0' || $not_numbers);
     }
 
     public function checkPassword($entered_password, $password)
@@ -191,5 +212,10 @@ class ProfileController extends Controller
     public function comparePasswords()
     {
         return $this->new_password == $this->c_new_password;
+    }
+
+    // For empty inputs
+    private function checkEmptyFields() {
+        return empty($this->new_password) or empty($this->c_new_password);
     }
 }

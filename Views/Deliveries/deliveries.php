@@ -140,7 +140,7 @@ if (isset($success)) {
                                                 <div class="row">
                                                     <div class="col-sm-1"></div>
                                                     <div class="col-sm-2"><button type="submit" class="btn btn-success" name="accept">Accept</button></div>
-                                                    <div class="col-sm-2"><button type="submit" class="btn btn-danger" name="reject">Reject</button></div>
+                                                    <div class="col-sm-2"><button type="submit" class="btn btn-danger" name="reject">Rejected</button></div>
                                                 </div>
                                             </div>
                                         </div>

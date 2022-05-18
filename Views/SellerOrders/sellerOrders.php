@@ -8,6 +8,11 @@
 
 
     <!--Pending-->
+    <?php
+        $error = "";
+        if (isset($orderError) && $orderError)
+            $error = "<p class=\"label-rejected\">Order amount exceeds stock amount. Cannot accept this order.</p>";
+    ?>
     <div class="accordion accordion-flush acc" id="accordionFlushExample">
         <div class="accordion-item acc">
             <h2 class="accordion-header" id="headingOne">
@@ -33,7 +38,7 @@
                                     echo '<div class="col-lg-6">
                                         <form action="' . WEBROOT . 'sellerOrders' . '" method="POST">                                        
                                         <div class="card">
-                                            <div class="card-body">
+                                            <div class="card-body">'. $error .'
                                                 <h5 class="card-title"> Order ID : ' . $sellerOrder->getOrderId() . '</h5>
                                                 <div class="col-lg-2 ms-auto">
                                                     <p class="label-' . $sellerOrder->getOrderStatus() . '">' . $sellerOrder->getOrderStatus() . '</p>
@@ -112,20 +117,23 @@
                                                 <br>
                                                 <div class="row">
                                                
-                                        <label for="deliveryPersons"><h6 style="color: black">Choose a Delivery Person: </h6></label>
-                                        <div class="col-lg-10 col-sm-5 " style="margin-top: 5px">
-                                        <select class="delivery_persons " name="deliveryPerson" id="" >';
-                                    foreach ($deliveryPersonsList as $dp) {
-                                        echo '<option value=' . $dp->getUserId() . '>' . $dp->getFirstName() . '</option>
+                                        <label for="deliveryPersons"><h6 style="color: black">Choose a Delivery Person: </h6></label>';
+                                    if ($deliveryPersonsList) {
+                                        echo '<div class="col-lg-10 col-sm-5 " style="margin-top: 5px"><select class="delivery_persons " name="deliveryPerson" id="" >';
+                                        foreach ($deliveryPersonsList as $dp) {
+                                            echo '<option value=' . $dp->getUserId() . '>' . $dp->getFirstName() . '</option>
                                                 ';
-                                    }
+                                        }
 
 
-                                    echo '                                        </select></div>
+                                        echo '                                        </select></div>
                                         <div class="col-lg-2 col-sm-6 col-md-4" style="margin-top: 5px">
                                     <button style="margin-left: 10px" type="submit" class="btn btn-success " name="assignDeliveryPerson" value=' . $sellerOrder->getOrderId() . '>Add</button>
-                                            </div>
-                                            </div>
+                                            </div>';
+                                    } else {
+                                        echo "<div style=\"margin-left:10px; text-align:center;\"><p>Currently you don't have delivery persons assigned to your shop.</p><div><p>Click <a href=\"deliverypersons\" style=\"color: crimson;\">here</a> to add a delivery person to your shop.</p></div></div>";
+                                    }
+                                            echo '</div>
                                             </div>
                                         </div>
                                     </form>

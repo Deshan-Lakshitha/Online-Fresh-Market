@@ -18,6 +18,7 @@ class ShopsController extends Controller
         require_once("../Includes/check_login.php");
         $user = unserialize($_SESSION['user']);
 
+        $this->set(array("user_name"=>$user->getFirstName()));
 
         $model = new Shops();
 

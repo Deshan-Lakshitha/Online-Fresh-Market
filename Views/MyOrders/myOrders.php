@@ -44,6 +44,9 @@
                                     case 'unassigned' :
                                         $label = 'accepted';
                                         break;
+                                    case 'rejected_on_delivery':
+                                        $label = 'rejected';
+                                        break;
                                     default :
                                         $label = $myOrder->getOrderStatus();
                                         break;
@@ -73,22 +76,28 @@
                                             ';
                                 }
                                 echo '<div class="col-lg-6 ms-auto">';
+
                                 switch ($myOrder->getOrderStatus()) {
                                     case 'pending':
                                         echo '<button type="submit" class="btn btn-danger" name="cancel" value=' . $myOrder->getOrderId() . '>Cancel</button>';
                                         break;
                                     case 'ondelivery':
                                         echo '<button type="submit" class="btn btn-secondary" name="confirm" value=' . $myOrder->getOrderId() . '>Confirm</button>
-                              <button type="submit" class="btn btn-danger" name="reject" value=' . $myOrder->getOrderId() . '>Reject</button>';
+                              <button type="submit" class="btn btn-danger" name="reject" value=' . $myOrder->getOrderId() . '>Rejected</button>';
                                         break;
+                                    case 'rejected_on_delivery':
                                     case 'rejected':
+                                        echo '<div class="row">
+                                                    <div class="col"><button type="submit" class="btn btn-warning" name="close" value=' . $myOrder->getOrderId() . '>Close</button></div>
+                                                </div>';
+                                        break;
                                     case 'confirmed':
                                         echo '<div class="row">
                                                     <div class="col"><button type="submit" class="btn btn-warning" name="close" value=' . $myOrder->getOrderId() . '>Close</button></div>
                                                     <div class="col"><button type="submit" class="btn btn-danger" name="report" value=' . $myOrder->getOrderId() . '>Report</button></div>
                                                 </div>';
                                         break;
-                                        case 'reported':
+                                    case 'reported':
                                         echo '<button type="submit" class="btn btn-danger" name="cancel" value=' . $myOrder->getOrderId() . '>Cancel & Close</button>';
                                         break;
 

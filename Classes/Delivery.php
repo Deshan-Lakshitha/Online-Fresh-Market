@@ -5,6 +5,7 @@ class Delivery
 {
     private $delivery_id, $delivery_person_id, $order_id, $delivery_status, $shop_id, $shop_name, $delivery_address, $customer_name, $mobile_no;
 
+
     public function __construct($delivery_id, $delivery_person_id, $order_id, $delivery_status, $shop_id, $shop_name, $delivery_address, $customer_name, $mobile_no)
     {
         $this->delivery_id = $delivery_id;

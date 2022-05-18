@@ -28,7 +28,11 @@ class SignupController extends Controller
         $data = $_POST;
         $this->secure_form($data);
 
+        $formData = array("first_name" => "", "last_name" => "", "email" => "", "mobile_no" => "", "address" => "");
+
         if (isset($data["submit"])) {
+            $formData = $data;
+            $this->set(array("data" => $formData));
 
             $this->first_name = $data["first_name"];
             $this->last_name = $data["last_name"];
@@ -83,8 +87,11 @@ class SignupController extends Controller
                 $this->set(array("error"=>"database_query_error"));
             }
 
-        } else
+        } else {
+            $this->set(array("data" => $formData));
+
             $this->render("signup");
+        }
     }
 
     // For empty inputs
@@ -100,7 +107,7 @@ class SignupController extends Controller
 
     // Valid username check
     public function checkValidUsername() {
-        return preg_match("/^[a-zA-Z0-9]*$/", $this->first_name) && preg_match("/^[a-zA-Z0-9]*$/", $this->last_name);
+        return preg_match("/^[a-zA-Z]*$/", $this->first_name) && preg_match("/^[a-zA-Z]*$/", $this->last_name);
     }
 
     // Valid email check
@@ -118,7 +125,11 @@ class SignupController extends Controller
     // Validate mobile number
     public function validateMobileNo() {
         $MobileNo = $this->mobile_no;
-        return !(strlen($MobileNo) != 10 || substr($MobileNo, 0, 2) != '07');
+        $not_numbers = true;
+        if (preg_match("/^[0-9]*$/", $MobileNo))
+            $not_numbers = false;
+
+        return !(strlen($MobileNo) != 10 || substr($MobileNo, 0, 1) != '0' || $not_numbers);
     }
 
     // Check for already existing emails

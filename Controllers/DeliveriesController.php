@@ -71,8 +71,9 @@ class DeliveriesController extends Controller
         } elseif (isset($data["reject"])) {
             $values = array();
             array_push($values, "unassigned");
+            array_push($values, NULL);
             array_push($values, $data["delivery_id"]);
-            if ($model->updateState($values)) {
+            if ($model->updateRejectState($values)) {
                 $order_values = array("unassigned", $data["order_id"]);
                 if ($model->updateOrder($order_values)) {
                     $this->set(array("success" => "success_unassigned"));

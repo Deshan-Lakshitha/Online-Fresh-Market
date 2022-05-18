@@ -1,7 +1,7 @@
 <div class="row">
     <div class="titleAndSearch">
         <div class="col">
-            <img src="<?= WEBROOT ?>HomeImages/<?= $shop->getImage() ?>" alt="" class="avatar">
+            <img src="<?= WEBROOT ?>HomeImages/ShopImages/<?= $shop->getImage() ?>" alt="" class="avatar">
             <h1 class="heading_name"><?= $shop->getShopName() ?></h1>
             <h4 class="intro"><?= $shop->getDescription() ?></h4>
         </div>

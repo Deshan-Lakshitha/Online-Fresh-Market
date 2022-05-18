@@ -57,7 +57,7 @@
                     <?php
                     if (isset($user)) {
                         if ($user->getAccType() == 'customer') {
-                            echo '<a class="btn btn-success" id="seller-btn" href="becomeASeller" role="button">Become A Seller</a>';
+                            echo '<a class="btn btn-success" id="seller-btn" href="becomeaseller" role="button">Become A Seller</a>';
                         }
                         echo '<a class="btn btn-danger" id="seller-btn" href="logout" role="button">Sign Out</a>';
                     }
@@ -111,7 +111,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-1"></div>
                                                     <div class="col"><button type="submit" class="btn btn-success" name="accept">Accept</button></div>
-                                                    <div class="col"><button type="submit" class="btn btn-danger" name="reject">Reject</button></div>
+                                                    <div class="col"><button type="submit" class="btn btn-danger" name="reject">Rejected</button></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,7 +171,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="firstName" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="new_first_name" name="new_first_name">
+                                    <input type="text" class="form-control" id="new_first_name" name="new_first_name" value="<?= isset($error_profile) ? $data['new_first_name'] : '' ?>">
                                 </div>
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="lastName" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="new_last_name" name="new_last_name">
+                                    <input type="text" class="form-control" id="new_last_name" name="new_last_name" value="<?= isset($error_profile) ? $data['new_last_name'] : '' ?>">
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="mobileNo" class="form-label">Mobile Numeber</label>
-                                    <input type="text" class="form-control" placeholder="07X1234567" aria-label="Recipient's username" aria-describedby="basic-addon2" name="new_mobile_no">
+                                    <input type="text" class="form-control" placeholder="07X1234567" aria-label="Recipient's username" aria-describedby="basic-addon2" name="new_mobile_no" value="<?= isset($error_profile) ? $data['new_mobile_no'] : '' ?>">
                                 </div>
                             </div>
                         </div>
@@ -198,7 +198,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="address" class="form-label">Postal Address</label>
-                                    <input type="text" class="form-control" id="new_address" name="new_address" placeholder="2/40, Temple Street, Galle.">
+                                    <input type="text" class="form-control" id="new_address" name="new_address" placeholder="2/40, Temple Street, Galle." value="<?= isset($error_profile) ? $data['new_address'] : '' ?>">
                                 </div>
                             </div>
                         </div>
@@ -255,6 +255,9 @@
                             break;
                         case 'wrong_password':
                             echo "<p class=\"formError\">Wrong Password. Update failed. Please try again.</p>";
+                            break;
+                        case 'empty_password' :
+                            echo "<p class=\"formError\">Empty fields. Update failed. Please try again.</p>";
                             break;
                         default:
                             echo "<p class=\"formError\">Errors in your submission. Please try again.</p>";
